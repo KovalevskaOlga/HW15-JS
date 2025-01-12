@@ -6,9 +6,8 @@ const people = [
 ];
 
 // task 1 Отримати загальну суму балансу (поле balance) всіх користувачів.
-const countBalance = people =>
-    people.reduce((totalBalance, person) => totalBalance + person.balance, 0);
-console.log(countBalance(people)); 
+const countBalance = people.reduce((acc,person) => acc + person.balance, 0)
+console.log(countBalance); 
 
 // task 2 Масив імен всіх користувачів у яких є друг із зазначеним ім'ям.
 const findTima = people.filter((person) => person.
@@ -24,10 +23,9 @@ console.log(sortfriends);
 
 // task 4 Отримати масив всіх умінь всіх користувачів (поле skills), при цьому не має бути повторюваних умінь і вони повинні бути відсортовані в алфавітному порядку.
 let togetherSkills = [];
-const findSkills = people.forEach((person) => togetherSkills.
-    push(...person.skills));
+const findSkills = people.forEach((person) => togetherSkills.push(...person.skills));
 
-    let uniqueSkills = [];
+let uniqueSkills = [];
 togetherSkills.forEach((skill) => {
   if (!uniqueSkills.includes(skill)) {
     uniqueSkills.push(skill);
@@ -35,4 +33,4 @@ togetherSkills.forEach((skill) => {
 });
 
 uniqueSkills.sort();
-console.log(uniqueSkills)
+console.log(uniqueSkills);
