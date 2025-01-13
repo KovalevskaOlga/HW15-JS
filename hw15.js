@@ -10,11 +10,18 @@ const countBalance = people.reduce((acc,person) => acc + person.balance, 0)
 console.log(countBalance); 
 
 // // task 2 Масив імен всіх користувачів у яких є друг із зазначеним ім'ям.
-// const copyPeople = [...people]; // копія масиву тому що сорт мутує 
-// const findFriend = copyPeople.sort(())
+// копія масиву тому що сорт мутує 
+const findTima = people.reduce((acc, person) => {
+  if (person.friends.includes('Tima')) {
+    acc.push(person.name)
+  }
+  return acc
+}, []);
+console.log(findTima)
 
 // task 3 Масив імен (поле name) людей, відсортованих в залежності від кількості їх друзів (поле friends)
 // використала копію масиву з попередньої таски
+const copyPeople = [...people]
 const sortfriends = copyPeople.sort((prevFriend,
     nextFriend) => prevFriend.friends.length - nextFriend.
     friends.length).map((person) => person.name)
@@ -26,6 +33,7 @@ const findSkills = people.forEach((person) => togetherSkills.push(...person.skil
 // console.log(togetherSkills)
 const uniqFindSkills = togetherSkills.reduce((uniq, skill) => {
   return uniq.includes(skill) ? uniq : [...uniq, skill]; // скоротила if else
-}, [])
-console.log(uniqFindSkills);
+}, []);
+
+console.log(uniqFindSkills.sort());
 
